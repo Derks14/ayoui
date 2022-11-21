@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'ascircular';
+    src: url("./assets/fonts/ascircular/ASCircularWeb-Book.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ascircular';
+    src: url("./assets/fonts/ascircular/ASCircularWeb-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ascircular';
+    src: url("./assets/fonts/ascircular/ASCircularWeb-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'basis';
+    src: url("./assets/fonts/basis/BasisGrotesqueArabicPro-Regular.ttf") format("ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'basis';
+    src: url("./assets/fonts/basis/BasisGrotesqueArabicPro-Medium.ttf") format("ttf");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'basis';
+    src: url("./assets/fonts/basis/BasisGrotesqueArabicPro-Light.ttf") format("ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'basis';
+    src: url("./assets/fonts/basis/BasisGrotesqueArabicPro-Bold.ttf") format("ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'basis';
+    src: url("./assets/fonts/basis/BasisGrotesqueArabicPro-Black.ttf") format("ttf");
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+
+
