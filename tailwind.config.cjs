@@ -8,10 +8,10 @@ module.exports = {
     },
     extend: {
       colors: {
-        'antique':'#F2e7d5',
-        'pine': '#6D9886',
-        'onyx': '#393E46'
-      }
+        antique: "#F2e7d5",
+        pine: "#6D9886",
+        onyx: "#393E46",
+      },
     },
   },
   plugins: [
