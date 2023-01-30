@@ -1,4 +1,5 @@
 import { UserCorner } from "@/sections/nav/components/user-section.jsx";
+import { Notifications } from "@/sections/nav/components/notifications.jsx";
 
 export const Nav = () => {
   return (
@@ -9,11 +10,9 @@ export const Nav = () => {
             <div>Home</div>
           </div>
           <div>
-            <div className="flex gap-5 ">
-              <div className="">notifications</div>
-              <div className="">
-                <UserCorner />
-              </div>
+            <div className="flex gap-5 items-center">
+              <Notifications />
+              <UserCorner />
             </div>
           </div>
         </div>

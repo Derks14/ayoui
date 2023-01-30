@@ -4,7 +4,11 @@ import { Styling } from "@/utils/styles/index.js";
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { ArrowPathIcon } from "@heroicons/react/24/outline/index.js";
+import {
+  ArrowPathIcon,
+  EnvelopeIcon,
+  LockClosedIcon,
+} from "@heroicons/react/24/outline/index.js";
 
 export const LoginForm = (props) => {
   const {
@@ -14,7 +18,7 @@ export const LoginForm = (props) => {
 
   const loginSchema = Yup.object({
     username: Yup.string()
-      .email()
+      .email("Invalid email address")
       .required("Kindly provide a valid email address"),
     password: Yup.string()
       .required("No password provided")
@@ -54,7 +58,10 @@ export const LoginForm = (props) => {
         <div className="my-4">
           {/* Email */}
           <label htmlFor="username" className="block">
-            <span>Email </span>
+            <div className="flex items-center gap-2">
+              <EnvelopeIcon className="h-4 w-4" />
+              <span>Work Email </span>
+            </div>{" "}
             <input
               type="email"
               name="username"
@@ -64,7 +71,7 @@ export const LoginForm = (props) => {
               value={values.username}
               aria-invalid={!!errors.username && !!touched}
               className={Styling.input}
-              placeholder=""
+              placeholder="email@yourcompany.com"
             />
             <p className={Styling.error_message}>{errors.username}</p>
           </label>
@@ -73,7 +80,10 @@ export const LoginForm = (props) => {
         {/* Password */}
         <div className="my-4">
           <label className="relative block">
-            <span>Password </span>
+            <div className="flex items-center gap-2">
+              <LockClosedIcon className="h-4 w-4" />
+              <span>Password</span>
+            </div>
             {/* eslint-disable-next-line */}
             <span
               onClick={() => setShowPassword(!showPassword)}
@@ -90,17 +100,17 @@ export const LoginForm = (props) => {
               value={values.password}
               aria-invalid={!!errors.password && !!touched.password}
               className={Styling.input}
-              placeholder=""
+              placeholder="password"
             />
             <p className={Styling.error_message}>{errors.password}</p>
           </label>
         </div>
 
-        <div>
+        <div className="my-4">
           <button
             type="submit"
             disabled={!isValid}
-            className="bg-black text-white w-full py-2 disabled:opacity-50"
+            className="bg-black text-white w-full py-2 rounded transition-opacity ease-in duration-700 disabled:opacity-50"
           >
             {isLoading ? (
               <span className="flex w-full justify-center align-middle ">

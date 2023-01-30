@@ -26,7 +26,7 @@ export const Login = () => {
       <div className="m-2">
         <h2 className="text-xl font-thin text">Untitled</h2>
       </div>
-      <div className="grow">
+      <div className="grow animate-fadeinfast">
         <div className="h-full flex flex-col justify-center w-9/12 mx-auto">
           <div>
             {/* Welcome messages */}
@@ -76,9 +76,9 @@ export const Login = () => {
               <div className="mt-4">
                 <p>
                   Dont have an account ?{" "}
-                  <Link className="font-medium" to="/request-account">
-                    Request Now
-                  </Link>{" "}
+                  <Link className="font-medium" to="/auth/register">
+                    Register
+                  </Link>
                 </p>
               </div>
             </div>

@@ -12,6 +12,21 @@ module.exports = {
         pine: "#6D9886",
         onyx: "#393E46",
       },
+      keyframes: {
+        fadein: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 }
+        },
+        fadeout: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 }
+        }
+      },
+      animation: {
+        fadein: 'fadein 0.7s ease-in-out both',
+        fadeinfast: 'fadein 0.5s ease-in both',
+        fadeout: 'fadeout 1s ease-in'
+      }
     },
   },
   plugins: [
