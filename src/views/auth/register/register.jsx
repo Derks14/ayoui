@@ -1,14 +1,23 @@
 import { RegisterForm } from "@/views/auth/register/components/register-form.jsx";
 import { useMutation } from "@tanstack/react-query";
 import { Authentication } from "@/services/authentication/index.js";
-import { Link } from "react-router-dom";
-import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { StorageService } from "@/services/storage/index.js";
+import { UserContext } from "@/context/UserContext.js";
 
 export const Register = () => {
+  const [, setUser] = useContext(UserContext);
+
+  const navigate = useNavigate();
+
   const register_mutation = useMutation({
     mutationFn: Authentication.register,
     onSuccess: (data) => {
-      console.log(data);
+      const { user, access_token } = data;
+      StorageService.setAccessToken(access_token);
+      setUser(user);
+      navigate("/home");
     },
   });
   return (

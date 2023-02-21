@@ -2,8 +2,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Styling } from "@/utils/styles/index.js";
 import React, { useState } from "react";
-import { ReactComponent as EyeSlash } from "@/assets/svgs/eye-slash.svg";
-import { ReactComponent as Eye } from "@/assets/svgs/eye.svg";
+
 import {
   ArrowPathIcon,
   AtSymbolIcon,
@@ -22,7 +21,8 @@ export const RegisterForm = (props) => {
   } = props;
 
   const schema = Yup.object({
-    full_name: Yup.string().required("Full name required"),
+    first_name: Yup.string().required("First name required"),
+    last_name: Yup.string().required("Last name required"),
     work_email: Yup.string()
       .email("Invalid work email")
       .required("Email address required"),
@@ -62,7 +62,8 @@ export const RegisterForm = (props) => {
     handleChange,
   } = useFormik({
     initialValues: {
-      full_name: "",
+      first_name: "",
+      last_name: "",
       work_email: "",
       company: "",
       password: "",
@@ -70,7 +71,14 @@ export const RegisterForm = (props) => {
     },
     validationSchema: schema,
     onSubmit: (values) => {
-      console.log("submitted values ", values);
+      const payload = {
+        first_name: values.first_name,
+        last_name: values.last_name,
+        email: values.work_email,
+        company: values.company,
+        password: values.password,
+      };
+      mutate(payload);
     },
     onReset: () => {},
   });
@@ -78,25 +86,51 @@ export const RegisterForm = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="mt-3">
-          <label htmlFor="full_name" className="block">
-            <div className="flex items-center gap-2">
-              <UserIcon className="h-4 w-4" />
-              <span>Full name </span>
-            </div>
-            <input
-              type="text"
-              name="full_name"
-              id="full_name"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.full_name}
-              aria-invalid={!!errors.full_name && !!touched.full_name}
-              className={Styling.input}
-              placeholder="Full name eg. John Doe"
-            />
-            <small className={Styling.error_message}>{errors.full_name}</small>
-          </label>
+        <div className="flex items-center gap-4 mt-6">
+          <div className=" w-full">
+            <label htmlFor="last_name" className="block">
+              <div className="flex items-center gap-2">
+                <UserIcon className="h-4 w-4" />
+                <span>Last name </span>
+              </div>
+              <input
+                type="text"
+                name="last_name"
+                id="last_name"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.last_name}
+                aria-invalid={!!errors.last_name && !!touched.last_name}
+                className={Styling.input}
+                placeholder="Last name eg. Doe"
+              />
+              <small className={Styling.error_message}>
+                {errors.last_name}
+              </small>
+            </label>
+          </div>
+          <div className=" w-full">
+            <label htmlFor="first_name" className="block">
+              <div className="flex items-center gap-2">
+                <UserIcon className="h-4 w-4" />
+                <span>First name </span>
+              </div>
+              <input
+                type="text"
+                name="first_name"
+                id="first_name"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.first_name}
+                aria-invalid={!!errors.first_name && !!touched.first_name}
+                className={Styling.input}
+                placeholder="First name eg. John"
+              />
+              <small className={Styling.error_message}>
+                {errors.first_name}
+              </small>
+            </label>
+          </div>
         </div>
         <div className="mt-3">
           <label htmlFor="work_email" className="block">
@@ -211,6 +245,9 @@ export const RegisterForm = (props) => {
               className={Styling.input}
               placeholder="*********"
             />
+            <small className={Styling.error_message}>
+              {errors.confirm_password}
+            </small>
           </label>
         </div>
         <div className="mt-3">

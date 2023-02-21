@@ -16,7 +16,7 @@ export const UserCorner = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="w-12 h-12 outline-0 rounded-full active:ring-4 active:ring-gray-300">
-        <button style={{ unset: true }}>
+        <div style={{ unset: true }}>
           <Avatar className="w-12 h-12 rounded-full">
             <AvatarImage
               className="w-12 h-12 rounded-full object-cover"
@@ -25,7 +25,7 @@ export const UserCorner = () => {
             />
             <AvatarFallback delayMs={600}>DK</AvatarFallback>
           </Avatar>
-        </button>
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuPortal>
         <DropdownMenuContent
